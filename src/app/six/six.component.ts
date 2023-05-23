@@ -13,26 +13,29 @@ export class SixComponent {
 
   constructor(private sharedService: SharedService) { }
 
+  ngOnInit() {
+    this.isAuthorized = this.sharedService.acess;
+  }
+
   saveInput() {
     console.log(this.inputValue);
-  
-    // Check the validity of the API key and update the authorization status
+
+
     if (this.inputValue && this.inputValue.length >= 40) {
       this.sharedService.key = this.inputValue;
       this.sharedService.acess = true;
       this.isAuthorized = true;
-      this.authorizationChange.emit(true); // Emit authorization change
+      this.authorizationChange.emit(true);
     } else {
       this.sharedService.key = '';
       this.sharedService.acess = false;
       this.isAuthorized = false;
-      this.authorizationChange.emit(false); // Emit authorization change
+      this.authorizationChange.emit(false);
     }
   }
-  
 
   openLink() {
-    const url = 'https://api.nasa.gov'; // Replace the URL with the desired one
+    const url = 'https://api.nasa.gov'; 
     window.open(url, '_blank');
   }
 
@@ -40,6 +43,6 @@ export class SixComponent {
     this.sharedService.key = '';
     this.sharedService.acess = false;
     this.isAuthorized = false;
-    this.authorizationChange.emit(false); // Emit authorization change
+    this.authorizationChange.emit(false);
   }
 }
