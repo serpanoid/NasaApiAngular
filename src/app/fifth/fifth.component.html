@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="button-wrapper">
+      <p class="text" >{{nasa[currentIndex].caption}}</p>
+      <p class="text">{{nasa[currentIndex].date}}</p>
+      <button class="button button-left" (click)="lastImage()">&lArr;</button>
+
+      <img [src]="photos[currentIndex]" alt="My Image" id="photo">
+
+      <button class="button button-right" (click)="nextImage()">&rArr;</button>
+    </div>
+  </div>
+ 

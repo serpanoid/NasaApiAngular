@@ -1,0 +1,111 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px;
+  height: 60px;
+  background-color: #f7f7f7;
+  color: #333;
+  font-weight: bold;
+  width: 100%;
+  margin: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+nav a.active {
+  color: #fff;
+  background-color: #007bff;
+}
+
+nav a:hover {
+  background-color: #e7e7e7;
+  color: #333;
+}
+
+.locked {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+nav {
+  transition: box-shadow 0.3s ease;
+}
+
+nav:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul li:last-child a {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+nav ul li:last-child a:hover {
+  transform: scale(1.1);
+}
+
+nav ul li:last-child a:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+nav ul li:last-child a.login-button {
+  background-color: #4caf50; /* Update to your desired color */
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+nav ul li:last-child a.login-button:hover {
+  transform: scale(1.1);
+}
+
+nav ul li:last-child a.login-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(12, 255, 4, 0.5);
+}
+
+
+nav ul li:last-child a.login-button.login-button-modern {
+  background-color: #007bff;
+  color: #fff;
+}
+
+nav ul li:last-child a.login-button.login-button-modern:hover {
+  background-color: #0056b3;
+  transform: none;
+}
+
+nav ul li:last-child a.login-button.login-button-modern:active {
+  background-color: #003580;
+}

@@ -1,0 +1,74 @@
+.input-field {
+  width: 360px;
+  height: 30px;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: block;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  color: #333;
+  text-align: center;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.button {
+  display: block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.button:active {
+  background-color: #003580;
+}
+
+.logout-button {
+  background-color: #dc3545;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add box shadow effect */
+  transition: background-color 0.3s ease, box-shadow 0.1s ease; /* Include box-shadow in the transition */
+}
+
+.logout-button:hover {
+  background-color: #c82333; /* Adjust the hover background color as desired */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Increase the box shadow on hover */
+}
+
+.logout-button:active {
+  background-color: #bd2130; /* Adjust the active background color as desired */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Increase the box shadow on active */
+}
+
+
+.button.authorize-button {
+  margin-left: 20px; /* Increase the margin on the left side */
+}
+
+
+
+.button-container .button.register-button {
+  margin-left: 100px; /* Increase specificity to override previous margin */
+}

@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="button-wrapper" *ngIf="asteroidData && asteroidData.length > 0">
+        <p class="text" (click)="getAsteroidName()">{{ getAsteroidName() }}</p>
+        <p class="text">{{ getMinEstimatedDiameter() }}</p>
+        <p class="text">{{ getMaxEstimatedDiameter() }}</p>
+        <button class="button button-left" (click)="lastImage()">&lArr;</button>
+        <img [src]="urls[currentIndex]" alt="Asteroid Image">
+        <button class="button button-right" (click)="nextImage()">&rArr;</button>
+    </div>
+</div>
+
+   
