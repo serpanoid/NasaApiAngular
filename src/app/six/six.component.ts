@@ -3,7 +3,20 @@ import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-six',
-  templateUrl: './six.component.html',
+  template: `
+    <div class="input-wrapper">
+      <input class="input-field" [(ngModel)]="inputValue" placeholder="Enter your NASA API key">
+    </div>
+    <div class="button-group">
+      <div class="button-container">
+        <button (click)="saveInput()" [ngClass]="{'button': true, 'authorize-button': true, 'disabled': inputValue.length < 40 }">
+          Authorize
+        </button>
+        <button *ngIf="isAuthorized" (click)="logout()" class="button logout-button">Logout</button>
+        <button (click)="openRegistrationPage()" class="button register-button">Register</button>
+      </div>
+    </div>
+  `,
   styleUrls: ['./six.component.css']
 })
 export class SixComponent {
@@ -20,7 +33,6 @@ export class SixComponent {
   saveInput() {
     console.log(this.inputValue);
 
-
     if (this.inputValue && this.inputValue.length >= 40) {
       this.sharedService.key = this.inputValue;
       this.sharedService.acess = true;
@@ -34,8 +46,8 @@ export class SixComponent {
     }
   }
 
-  openLink() {
-    const url = 'https://api.nasa.gov'; 
+  openRegistrationPage() {
+    const url = 'https://api.nasa.gov';
     window.open(url, '_blank');
   }
 
