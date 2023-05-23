@@ -1,11 +1,12 @@
 <div class="input-wrapper">
-    <input class="input-field" [(ngModel)]="inputValue" placeholder="Enter your NASA API key">
+  <input class="input-field" [(ngModel)]="inputValue" placeholder="Enter your NASA API key">
+</div>
+<div class="button-group">
+  <div class="button-container">
+    <button (click)="saveInput()" [ngClass]="{'button': true, 'authorize-button': true, 'disabled': inputValue.length < 40 }">
+      Authorize
+    </button>
+    <button *ngIf="isAuthorized" (click)="logout()" class="button logout-button">Logout</button>
+    <button (click)="openLink()" class="button register-button">Register</button>
   </div>
-  <div class="button-group">
-    <div class="button-container">
-      <button (click)="saveInput()" class="button authorize-button">Authorize</button>
-      <button *ngIf="isAuthorized" (click)="logout()" class="button logout-button">Logout</button>
-      <button (click)="openLink()" class="button register-button">Register</button>
-    </div>
-  </div>
-  
+</div>

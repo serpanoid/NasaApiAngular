@@ -1,8 +1,7 @@
 .input-field {
   width: 360px;
   height: 30px;
-  margin: 0 auto;
-  margin-top: 20px;
+  margin: 20px auto;
   display: block;
   padding: 5px;
   font-size: 16px;
@@ -38,6 +37,11 @@
   transition: background-color 0.3s ease;
 }
 
+.button:disabled {
+  background-color: #b3c6cc;
+  cursor: not-allowed;
+}
+
 .button:hover {
   background-color: #0056b3;
 }
@@ -48,27 +52,33 @@
 
 .logout-button {
   background-color: #dc3545;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add box shadow effect */
-  transition: background-color 0.3s ease, box-shadow 0.1s ease; /* Include box-shadow in the transition */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.1s ease;
 }
 
 .logout-button:hover {
-  background-color: #c82333; /* Adjust the hover background color as desired */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Increase the box shadow on hover */
+  background-color: #c82333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .logout-button:active {
-  background-color: #bd2130; /* Adjust the active background color as desired */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Increase the box shadow on active */
+  background-color: #bd2130;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
 }
 
-
-.button.authorize-button {
-  margin-left: 20px; /* Increase the margin on the left side */
+.authorize-button {
+  margin-left: 20px;
+  background-color: #007bff;
 }
 
+.authorize-button.disabled {
+  background-color: #87ceeb;
+}
 
+.authorize-button.button:active:hover {
+  background-color: #0056b3;
+}
 
 .button-container .button.register-button {
-  margin-left: 100px; /* Increase specificity to override previous margin */
+  margin-left: 100px;
 }
