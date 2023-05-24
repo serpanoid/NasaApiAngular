@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   }
 
   checkAuthorization() {
-    // Check the authorization status from the shared service
+    
     this.isAuthorized = this.sharedService.acess;
   }
 

@@ -53,9 +53,9 @@ export class SecondComponent {
         });
       });
   }
-  // 'AbnXhIuJIedy22Mu18fd2qZDuc3yBcBFg7Ek1Bu2'
+
   private fetchAsteroidImages() {
-    const apiKey = 'AbnXhIuJIedy22Mu18fd2qZDuc3yBcBFg7Ek1Bu2'; // Replace with your actual API key
+    const apiKey = 'FDvEV8IeA8CmptzlvKBcaktFSknbvrydfJBc36AY'; 
     const imageRequests = [];
   
     for (const asteroid of this.asteroidData) {

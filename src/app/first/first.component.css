@@ -1,44 +1,56 @@
 .container {
-    position: relative;
-  }
-  
-  .text {
-    margin-left: 35px;
-    margin-right: 35px;
-  }
-  
-  .button-wrapper {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .button {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    color: #fff;
-    font-weight: bold;
-    height: 700px;
-    width: 35px;
-    display: inline-block;
-  }
-  
-  .button-left {
-    float: left;
-    background-color: black;
-  }
-  
-  .button-right {
-    float: right;
-    background-color: black;
-  }
-  
-  #photo {
-    display: inline-block;
-    max-width: 95%;
-    height: auto;
-    margin: 0 auto;
-    height: 700px;
-    width: 95%;
-  }
-  
+  position: relative;
+}
+
+.text {
+  margin-left: 35px;
+  margin-right: 35px;
+}
+
+.button-wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  height: 50px;
+  width: 50px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.button-left {
+  float: left;
+  margin-right: 10px;
+}
+
+.button-right {
+  float: right;
+  margin-left: 10px;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.button:active {
+  background-color: #111;
+}
+
+#photo {
+  display: inline-block;
+  max-width: 500px;
+  max-height: 500px;
+  margin: 0 auto;
+  height: auto;
+  width: 95%;
+}

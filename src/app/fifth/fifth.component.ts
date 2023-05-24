@@ -26,8 +26,7 @@ export class FifthComponent {
         this.loadPhotos();
       });
   }
- // https://epic.gsfc.nasa.gov/archive/natural/2015/10/31/png/
-  // https://epic.gsfc.nasa.gov/archive/natural/2015/10/31/png/epic_1b_20151031074844.png
+
   loadPhotos() {
     this.nasa.forEach((item) => {
       let year: number = parseInt(item.date.split('-')[0]);
@@ -119,4 +118,3 @@ interface Photo {
   url: string;
 }
 
-// https://api.nasa.gov/EPIC/api/natural/date/2019-05-30?api_key=DEMO_KEY 

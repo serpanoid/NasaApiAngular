@@ -7,6 +7,7 @@
       Authorize
     </button>
     <button *ngIf="isAuthorized" (click)="logout()" class="button logout-button">Logout</button>
-    <button (click)="openLink()" class="button register-button">Register</button>
+    <button (click)="showNASAWebsite()" class="button register-button">Register</button>
   </div>
 </div>
+<iframe *ngIf="showNASARegistration" src="https://api.nasa.gov" frameborder="0" width="100%" height="500px"></iframe>

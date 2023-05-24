@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SharedService } from '../shared.service';
-// AbnXhIuJIedy22Mu18fd2qZDuc3yBcBFg7Ek1Bu2
 @Component({
   selector: 'app-first',
   templateUrl: './first.component.html',
@@ -11,7 +10,7 @@ export class FirstComponent {
   public nasa!: Nasa[];
   public currentIndex: number = 0;
   public urls! : string[];
-  public componentOpened: boolean = false; // Флаг, указывающий, что компонент открыт
+  public componentOpened: boolean = false; 
 
   constructor(private http: HttpClient, private sharedService: SharedService) {
     this.urls = [];
