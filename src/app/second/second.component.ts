@@ -54,7 +54,7 @@ export class SecondComponent implements OnInit {
       .subscribe((urls: string[]) => {
         this.urls = urls;
         this.isFetchingImages = false;
-        console.log(urls); 
+        console.log(urls);
       });
   }
 
@@ -69,7 +69,9 @@ export class SecondComponent implements OnInit {
         const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${formattedDate}`;
         imageRequests.push(
           this.http.get(url).pipe(
-            map((data: any) => data.url)
+            map((data: any) => {
+              return data.url;
+            })
           )
         );
       }
