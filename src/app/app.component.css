@@ -11,6 +11,11 @@ nav {
   width: 100%;
   margin: 0;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+nav:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 nav ul {
@@ -42,25 +47,6 @@ nav a:hover {
   color: #333;
 }
 
-.locked {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-
-nav {
-  transition: box-shadow 0.3s ease;
-}
-
-nav:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.center-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 nav ul li:last-child a {
   background-color: #dc3545;
   color: #fff;
@@ -79,7 +65,7 @@ nav ul li:last-child a:focus {
 }
 
 nav ul li:last-child a.login-button {
-  background-color: #4caf50; /* Update to your desired color */
+  background-color: #4caf50;
   color: #fff;
   padding: 8px;
   border-radius: 4px;
@@ -94,7 +80,6 @@ nav ul li:last-child a.login-button:focus {
   outline: none;
   box-shadow: 0 0 5px rgba(12, 255, 4, 0.5);
 }
-
 
 nav ul li:last-child a.login-button.login-button-modern {
   background-color: #007bff;
@@ -113,4 +98,10 @@ nav ul li:last-child a.login-button.login-button-modern:active {
 nav ul li a.locked {
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

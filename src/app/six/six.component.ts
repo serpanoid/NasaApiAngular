@@ -38,7 +38,7 @@ export class SixComponent {
       this.sharedService.access = true;
       this.isAuthorized = true;
       this.authorizationChange.emit(true);
-      this.refreshNavigation(); // Refresh the navigation
+      this.refreshNavigation();
     } else {
       this.sharedService.key = '';
       this.sharedService.access = false;
@@ -57,11 +57,14 @@ export class SixComponent {
     this.sharedService.access = false;
     this.isAuthorized = false;
     this.authorizationChange.emit(false);
-    this.refreshNavigation(); // Refresh the navigation
+    this.refreshNavigation();
   }
 
   refreshNavigation() {
     const navigationEvent = new Event('NavigationEvent');
-    document.querySelector('nav')?.dispatchEvent(navigationEvent);
+    const navElement = document.querySelector('nav');
+    if (navElement) {
+      navElement.dispatchEvent(navigationEvent);
+    }
   }
 }
