@@ -15,7 +15,7 @@ export class AuthGuard  {
     // Здесь проверьте условие, например, значение булевой переменной
     const isAuthenticated = true; // Ваше условие для разрешения доступа к компоненту
 
-    if (this.sharedService.acess) {
+    if (this.sharedService.access) {
       return true; // Разрешение доступа к компоненту
     } else {
       // Если условие не выполнено, перенаправьте на другой маршрут или выполните другие действия
