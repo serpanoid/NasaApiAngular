@@ -15,15 +15,15 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
-  constructor(private router: Router, private sharedService: SharedService) {
+  constructor(private router: Router, private sharedService: SharedService) {}
+
+  ngOnInit() {
     this.router.events.pipe(takeUntil(this.ngUnsubscribe)).subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.checkAuthorization();
       }
     });
-  }
 
-  ngOnInit() {
     this.checkAuthorization();
   }
 
