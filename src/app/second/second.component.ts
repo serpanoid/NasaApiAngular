@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { SharedService } from '../shared.service';
 
 interface Asteroid {
@@ -30,7 +30,7 @@ interface Asteroid {
   templateUrl: './second.component.html',
   styleUrls: ['./second.component.css']
 })
-export class SecondComponent {
+export class SecondComponent implements OnInit {
   public currentIndex: number = 0;
   public urls: string[] = [];
   public asteroidData: Asteroid[] = [];
@@ -42,39 +42,41 @@ export class SecondComponent {
   ngOnInit() {
     this.http
       .get(`https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=${this.sharedService.key}&count=100`)
-      .subscribe((data: any) => {
-        console.log(data)
-        const response: any = data;
-        const asteroids: Asteroid[] = response.near_earth_objects['2015-09-07'];
-        this.asteroidData = asteroids;
-        this.fetchAsteroidImages().subscribe((urls: string[]) => {
-          this.urls = urls;
-          this.isFetchingImages = false;
-        });
+      .pipe(
+        switchMap((data: any) => {
+          console.log(data);
+          const response: any = data;
+          const asteroids: Asteroid[] = response.near_earth_objects['2015-09-07'];
+          this.asteroidData = asteroids;
+          return this.fetchAsteroidImages();
+        })
+      )
+      .subscribe((urls: string[]) => {
+        this.urls = urls;
+        this.isFetchingImages = false;
+        console.log(urls); 
       });
   }
 
   private fetchAsteroidImages() {
-    const apiKey = 'FDvEV8IeA8CmptzlvKBcaktFSknbvrydfJBc36AY'; 
+    const apiKey = 'FDvEV8IeA8CmptzlvKBcaktFSknbvrydfJBc36AY';
     const imageRequests = [];
-  
+
     for (const asteroid of this.asteroidData) {
-      console.log(asteroid.close_approach_data)
+      console.log(asteroid.close_approach_data);
       for (const closeApproachData of asteroid.close_approach_data) {
-        
         const formattedDate = closeApproachData.close_approach_date;
         const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${formattedDate}`;
-        imageRequests.push(this.http.get(url).pipe(
-          map((data: any) => data.url)
-        ));
+        imageRequests.push(
+          this.http.get(url).pipe(
+            map((data: any) => data.url)
+          )
+        );
       }
     }
-  
+
     return forkJoin(imageRequests);
   }
-  
-  
-  
 
   public nextImage() {
     if (!this.isFetchingImages) {
@@ -109,6 +111,7 @@ export class SecondComponent {
     }
     return '';
   }
+
   public getMinEstimatedDiameter() {
     if (this.asteroidData && this.asteroidData.length > 0) {
       return this.asteroidData[this.currentIndex].estimated_diameter.kilometers.estimated_diameter_min;
